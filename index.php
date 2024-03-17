@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skyline - Main menu</title>
-    <link rel="icon" href="/assets/images/favicon.jpg">
+    <link rel="icon" href="./assets/images/favicon.jpg">
     <link rel="stylesheet" href="./css/mainmenu.css">
 </head>
 <body>
 <header>
     <div class="logo">
-        <img src="/assets/images/logo.jpg" alt="Airline Logo">
+        <img src="./assets/images/logo.jpg" alt="Airline Logo">
         <div class="title">
             <h1>Skyline Airlines PH</h1>
         </div>
     </div>
     <nav>
         <ul>
-            <li><a href="/dashboard.php">Dashboard</a></li>
+            <li><a href="./dashboard.php">Dashboard</a></li>
             <li><a href="#">Flights</a></li>
             <li><a href="#">Analytics</a></li>
             <?php
@@ -33,7 +33,7 @@
                 echo '</div>';
             } else {
                 // If the user is not logged in, display a login link
-                echo '<li><a href="/login.php">Login</a></li>';
+                echo '<li><a href="./login.php">Login</a></li>';
             }
             ?> 
         </ul>  
