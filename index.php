@@ -28,7 +28,7 @@
                 echo '<button class="dropbtn">Hello, ' . $_SESSION['username'] . '</button>';
                 echo '<div class="dropdown-content">';
                 echo '<a href="#">Profile</a>';
-                echo '<a href="/logout.php" class="logout">Logout</a>';
+                echo '<a href="./logout.php" class="logout">Logout</a>';
                 echo '</div>';
                 echo '</div>';
             } else {

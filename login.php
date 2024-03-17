@@ -4,18 +4,18 @@ session_start(); // Start session at the beginning of the script
 // Check if the user is logged in
 if(isset($_SESSION['username'])) {
     // If the user is logged in, redirect to mainmenu.php
-    header("Location: /mainmenu.php");
+    header("Location: ./mainmenu.php");
     exit();
 }
 
-include_once 'config/database.php';
+include_once './config/database.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
     // Prepare SQL statement to select user by username
-    $stmt = $conn->prepare("SELECT * FROM res_records WHERE res_email = ?");
+    $stmt = $conn->prepare("SELECT * FROM registration WHERE res_email = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
 
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $row['res_pass'])) {
             // Password is correct, redirect to mainmenu.php
             $_SESSION['username'] = $username;
-            header("Location: /index.php");
+            header("Location: ./index.php");
             exit();
         } else {
             // Incorrect password
@@ -52,20 +52,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 <header>
     <div class="logo">
-        <img src="/assets/images/logo.jpg" alt="Airline Logo">
+        <img src="./assets/images/logo.jpg" alt="Airline Logo">
         <div class="title">
             <h1>Skyline Airlines PH</h1>
         </div>
     </div>
     <nav>
         <ul>
-            <li><a href="/index.php">Home</a></li>
+            <li><a href="./index.php">Home</a></li>
             <li><a href="#">Flights</a></li>
             <li><a href="#">Analytics</a></li>
             <?php
             if(isset($_SESSION['username'])) {
                 // If the user is logged in, display the logout button
-                echo '<li><a href="/logout.php">Logout</a></li>';
+                echo '<li><a href="./logout.php">Logout</a></li>';
             }
             ?>
         </ul>
@@ -85,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <?php if(isset($errorMessage)): ?>
                 <p id="errorMessage" style="text-align: center; margin-top: 10px; color: red;"><?php echo $errorMessage; ?></p>
             <?php endif; ?>
-            <p style="text-align: center;"><a href="/registration.php">No account? register here</a>.</p>
+            <p style="text-align: center;"><a href="./registration.php">No account? register here</a>.</p>
         </form>
     </div>
 </main>

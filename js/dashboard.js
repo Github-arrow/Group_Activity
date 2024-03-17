@@ -6,7 +6,7 @@ $(document).ready(function() {
 
         // Send AJAX request to searchEngine.php
         $.ajax({
-            url: '/models/searchEngine.php',
+            url: './models/searchEngine.php',
             type: 'GET',
             data: formData,
             success: function(response) {
@@ -28,7 +28,7 @@ $('#search-button').click(function() {
 
     // Send AJAX request to searchEngine.php
     $.ajax({
-        url: '/models/searchEngine.php',
+        url: './models/searchEngine.php',
         type: 'GET',
         data: formData,
         success: function(response) {
